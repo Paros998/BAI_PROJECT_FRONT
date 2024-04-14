@@ -3,7 +3,7 @@ import {useEffect, useState} from "react";
 import {useCurrentUser} from "../contexts/UserContext/UserContext";
 
 
-Axios.defaults.baseURL = `http://localhost:8080/api/v1`;
+Axios.defaults.baseURL = `http://localhost:8080/api`;
 
 export const useInitAxios = () => {
     const [errorCode, setErrorCode] = useState();

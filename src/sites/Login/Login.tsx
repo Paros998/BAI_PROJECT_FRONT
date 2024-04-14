@@ -31,17 +31,14 @@ const Login = () => {
     const {fetchUser, setIsPending} = useCurrentUser();
 
     const handleSignIn = async (values: LoginFormikValues) => {
-        Axios.defaults.baseURL = 'http://localhost:8080';
         const loginParams = appendUrlSearchParams(values);
         try {
-            const {headers} = await Axios.post('/login', loginParams);
             setIsPending(true);
+            const {headers} = await Axios.post('/auth/login', loginParams);
 
             const accessToken = headers.authorization;
             Axios.defaults.headers.common.Authorization = accessToken;
             localStorage.setItem("JWT_USER_TOKEN", accessToken);
-
-            Axios.defaults.baseURL = 'http://localhost:8080/api/v1';
 
             toast.success("Logged successfully");
 
@@ -50,7 +47,6 @@ const Login = () => {
             await fetchUser();
 
         } catch (e: any) {
-            Axios.defaults.baseURL = 'http://localhost:8080/api/v1'
             toast.error("Username or Password incorrect");
         }
 

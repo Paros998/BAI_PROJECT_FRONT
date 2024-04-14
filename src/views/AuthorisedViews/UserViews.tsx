@@ -14,6 +14,15 @@ const UserViews = () => {
         <Routes>
 
             <Route
+                path={'/'}
+                element={
+                    <div>
+                        <p>Hello there</p>
+                    </div>
+                }
+            />
+
+            <Route
                 path='*'
                 element={<NotFound/>}
             />

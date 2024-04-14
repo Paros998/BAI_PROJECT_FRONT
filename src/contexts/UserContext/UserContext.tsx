@@ -48,7 +48,7 @@ const CurrentUserProvider: FC<ProviderProps> = ({children}) => {
 
         try {
 
-            const {data} = await Axios.get<UserModel>(`/users/${userId}`);
+            const {data} = await Axios.get<UserModel>(`/users/find/${userId}`);
             setCurrentUser(data);
             setRoles(data.roles);
 
