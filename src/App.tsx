@@ -1,21 +1,22 @@
 import React from 'react';
+import { ToastContainer } from 'react-toastify';
 
-import CurrentUserProvider from "./contexts/UserContext/UserContext";
-import {ToasterProps} from "./constants/ToasterProps";
-import Views from "./views/Views";
+import { ToasterProps } from './constants/ToasterProps';
+import CurrentUserProvider from './contexts/UserContext/UserContext';
+import Views from './views/Views';
+
 import './App.css';
-import {ToastContainer} from "react-toastify";
 
 function App() {
-    return (
-        <>
-            <CurrentUserProvider>
-                <Views/>
-            </CurrentUserProvider>
+	return (
+		<>
+			<CurrentUserProvider>
+				<Views />
+			</CurrentUserProvider>
 
-            <ToastContainer {...ToasterProps}/>
-        </>
-    );
+			<ToastContainer {...ToasterProps} />
+		</>
+	);
 }
 
 export default App;

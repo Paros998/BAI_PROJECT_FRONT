@@ -1,16 +1,12 @@
-import React, {FC, ReactNode} from 'react';
+import React, { FC, ReactNode } from 'react';
 
 interface MainWrapperProps {
-    className?: string;
-    children: ReactNode;
+	className?: string;
+	children: ReactNode;
 }
 
-const MainWrapper: FC<MainWrapperProps> = ({className, children}) => {
-    return (
-        <main className={className || ''}>
-            {children}
-        </main>
-    );
+const MainWrapper: FC<MainWrapperProps> = ({ className, children }) => {
+	return <main className={className || ''}>{children}</main>;
 };
 
 export default MainWrapper;

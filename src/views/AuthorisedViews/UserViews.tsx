@@ -1,34 +1,29 @@
 import React from 'react';
-import {Route, Routes} from "react-router-dom";
-import NotFound from "../../components/NotFound/NotFound";
-import Pending from "../../components/Pending/Pending";
-import {useCurrentUser} from "../../contexts/UserContext/UserContext";
+import { Route, Routes } from 'react-router-dom';
+
+import NotFound from '../../components/NotFound/NotFound';
+import Pending from '../../components/Pending/Pending';
+import { useCurrentUser } from '../../contexts/UserContext/UserContext';
 
 const UserViews = () => {
-    const {isPending} = useCurrentUser();
+	const { isPending } = useCurrentUser();
 
-    if (isPending)
-        return <Pending/>
+	if (isPending) return <Pending />;
 
-    return (
-        <Routes>
+	return (
+		<Routes>
+			<Route
+				path={'/'}
+				element={
+					<div>
+						<p>Hello there</p>
+					</div>
+				}
+			/>
 
-            <Route
-                path={'/'}
-                element={
-                    <div>
-                        <p>Hello there</p>
-                    </div>
-                }
-            />
-
-            <Route
-                path='*'
-                element={<NotFound/>}
-            />
-
-        </Routes>
-    );
+			<Route path="*" element={<NotFound />} />
+		</Routes>
+	);
 };
 
 export default UserViews;

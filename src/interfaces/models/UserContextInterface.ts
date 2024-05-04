@@ -1,15 +1,16 @@
-import {UserModel} from "./UserModel";
-import React from "react";
+import React from 'react';
+
+import { UserModel } from './UserModel';
 
 export interface UserContextInterface {
-  currentUser? : UserModel;
-  fetchUser: <UserModel>() => Promise<void>;
+	currentUser?: UserModel;
+	fetchUser: <UserModel>() => Promise<void>;
 
-  isPending: boolean;
-  setIsPending: React.Dispatch<React.SetStateAction<boolean>>
+	isPending: boolean;
+	setIsPending: React.Dispatch<React.SetStateAction<boolean>>;
 
-  onLogOut: () => Promise<void>
-  onClearUser: () => void;
+	onLogOut: () => Promise<void>;
+	onClearUser: () => void;
 
-  roles: string[];
+	roles: string[];
 }

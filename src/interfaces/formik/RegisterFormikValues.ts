@@ -1,4 +1,3 @@
-import {CommonUserValues} from "./CommonValues";
+import { CommonUserValues } from './CommonValues';
 
-export interface RegisterFormikValues extends CommonUserValues {
-}
+export type RegisterFormikValues = CommonUserValues;
