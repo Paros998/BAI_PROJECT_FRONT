@@ -5,10 +5,12 @@ import Axios from 'axios';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
+import BackgroundImageContainer from '../../components/BackgroundImageContainer/BackgroundImageContainer';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import MainWrapper from '../../components/Wrappers/MainWrapper';
 import RegisterForm from '../../forms/RegisterForm';
+import loginBg from '../../images/login_register.jpg';
 import { RegisterFormikValues } from '../../interfaces/formik/RegisterFormikValues';
 
 const RegisterFormikInitialValues: RegisterFormikValues = {
@@ -25,7 +27,6 @@ const Register = () => {
 	const navigate = useNavigate();
 
 	const handleSignUp = async (registerBody: RegisterFormikValues) => {
-		Axios.defaults.baseURL = 'http://localhost:8080/api/v1';
 		try {
 			await Axios.post('/users/register', registerBody);
 
@@ -40,15 +41,15 @@ const Register = () => {
 	};
 
 	return (
-		<>
+		<BackgroundImageContainer src={loginBg} className={'w-100 h-100'}>
 			<Header>
 				<div>
 					<h3 className="text-light mb-0">Sign up to use application.</h3>
 				</div>
 			</Header>
 
-			<MainWrapper className="bg-light">
-				<div className="d-flex flex-column container-fluid align-items-center justify-content-center rounded p-2">
+			<MainWrapper className="text-light mt-2">
+				<div className="d-flex flex-column bg-secondary-dark rounded-card-10 container-fluid align-items-center justify-content-center rounded p-4 w-75">
 					<h4>Provide user register data.</h4>
 
 					<Formik<RegisterFormikValues>
@@ -66,7 +67,7 @@ const Register = () => {
 			</MainWrapper>
 
 			<Footer />
-		</>
+		</BackgroundImageContainer>
 	);
 };
 

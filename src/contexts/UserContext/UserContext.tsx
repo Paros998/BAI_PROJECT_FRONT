@@ -6,8 +6,8 @@ import { jwtDecode } from 'jwt-decode';
 
 import { Roles } from '../../interfaces/enums/Roles';
 import { JwtUser } from '../../interfaces/JwtUser';
+import { UserModel } from '../../interfaces/models/Api';
 import { UserContextInterface } from '../../interfaces/models/UserContextInterface';
-import { UserModel } from '../../interfaces/models/UserModel';
 
 const UserContext = createContext<any>(undefined);
 

@@ -5,11 +5,13 @@ import Axios from 'axios';
 import { Formik } from 'formik';
 import * as yup from 'yup';
 
+import BackgroundImageContainer from '../../components/BackgroundImageContainer/BackgroundImageContainer';
 import Footer from '../../components/Footer/Footer';
 import Header from '../../components/Header/Header';
 import MainWrapper from '../../components/Wrappers/MainWrapper';
 import { useCurrentUser } from '../../contexts/UserContext/UserContext';
 import LoginForm from '../../forms/LoginForm';
+import loginBg from '../../images/login_register.jpg';
 import { LoginFormikValues } from '../../interfaces/formik/LoginFormikValues';
 import { appendUrlSearchParams } from '../../utils/appendUrlSearchParams';
 
@@ -49,7 +51,7 @@ const Login = () => {
 	};
 
 	return (
-		<>
+		<BackgroundImageContainer src={loginBg} className={'w-100 h-100'}>
 			<Header>
 				{logout ? (
 					<>
@@ -65,8 +67,8 @@ const Login = () => {
 				)}
 			</Header>
 
-			<MainWrapper className="bg-light">
-				<div className="d-flex flex-column container-fluid align-items-center justify-content-center rounded p-2">
+			<MainWrapper className={`text-light mt-2`}>
+				<div className="d-flex flex-column bg-secondary-dark rounded-card-10 container-fluid align-items-center justify-content-center rounded p-4 w-75">
 					<h4>Provide login data.</h4>
 
 					<Formik<LoginFormikValues>
@@ -78,13 +80,14 @@ const Login = () => {
 					</Formik>
 
 					<button onClick={() => navigate('/register')} className="btn-secondary mt-5 rounded-pill p-2">
+						{/* eslint-disable-next-line react/no-unescaped-entities */}
 						Or sign up here, if you don't have an account .
 					</button>
 				</div>
 			</MainWrapper>
 
 			<Footer />
-		</>
+		</BackgroundImageContainer>
 	);
 };
 

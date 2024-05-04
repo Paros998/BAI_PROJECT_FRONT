@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserModel } from './UserModel';
+import { UserModel } from './Api';
 
 export interface UserContextInterface {
 	currentUser?: UserModel;

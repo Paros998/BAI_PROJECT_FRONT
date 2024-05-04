@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import NotFound from '../../components/NotFound/NotFound';
 import Pending from '../../components/Pending/Pending';
 import { useCurrentUser } from '../../contexts/UserContext/UserContext';
+import Home from '../../sites/Home/Home';
 
 const UserViews = () => {
 	const { isPending } = useCurrentUser();
@@ -12,14 +13,7 @@ const UserViews = () => {
 
 	return (
 		<Routes>
-			<Route
-				path={'/'}
-				element={
-					<div>
-						<p>Hello there</p>
-					</div>
-				}
-			/>
+			<Route path="/" element={<Home />} />
 
 			<Route path="*" element={<NotFound />} />
 		</Routes>
