@@ -13,23 +13,28 @@ const HomeBook: FC<HomeBookProps> = ({ book }) => {
 	const photoUrl = Axios.defaults.baseURL + `/files/${photoId}`;
 
 	return (
-		<Card bg={'dark'} text={'light'} className={`d-flex flex-row border-light border-1`}>
-			{photoId && <img src={photoUrl} alt={'No preview available'} className={`ps-1 w-40 h-100`} />}
-			<div className={`d-flex flex-column w-100`}>
+		<Card bg={'dark'} text={'light'} className={`d-flex flex-row border-light border-1 height-300`}>
+			{photoId && (
+				<div className={`d-flex w-30`}>
+					<img src={photoUrl} alt={'No preview available'} className={`px-2 py-4 w-100 h-auto rounded-card-10`} />
+				</div>
+			)}
+
+			<div className={`d-flex flex-column w-70`}>
 				<Card.Body>
-					<Card.Title>Title: {title ? title : 'Unknown'}</Card.Title>
-					<Card.Text>Genre: {genre ? genre : 'Unknown'}</Card.Text>
-					<Card.Text>Author: {author ? author : 'Unknown'}</Card.Text>
-					<Card.Text>Description: {description ? description : 'Unknown'}</Card.Text>
+					<Card.Title className={`text-truncate`}>Title: {title ? title : 'Unknown'}</Card.Title>
+					<Card.Text className={`text-truncate`}>Genre: {genre ? genre : 'Unknown'}</Card.Text>
+					<Card.Text className={`text-truncate`}>Author: {author ? author : 'Unknown'}</Card.Text>
+					<Card.Text className={`text-trunc-4`}>Description: {description ? description : 'Unknown'}</Card.Text>
 				</Card.Body>
 				{onStock > 0 ? (
-					<Card.Footer className={`d-flex justify-content-between`}>
-						<span className={`text-success fs-4`}>OnStock: {onStock}</span>
+					<Card.Footer className={`d-flex justify-content-between align-items-center`}>
+						<span className={`text-success fs-5`}>OnStock: {onStock}</span>
 						<Button variant="success">Lend book</Button>
 					</Card.Footer>
 				) : (
 					<Card.Footer className={`d-flex justify-content-start`}>
-						<span className={`text-warning fs-4`}>Unavailable currently. Check later.</span>
+						<span className={`text-warning fs-5`}>Unavailable currently.</span>
 					</Card.Footer>
 				)}
 			</div>

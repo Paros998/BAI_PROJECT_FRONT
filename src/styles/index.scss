@@ -2,6 +2,7 @@
 @import "custom-modifier";
 @import "custom-buttons";
 @import "custom-variables";
+@import "custom-scrolls";
 
 @import "node_modules/bootstrap/scss/bootstrap";
 @import "react-toastify/dist/ReactToastify.css";
@@ -38,17 +39,16 @@ footer {
   bottom: 0;
 }
 
-// TODO WORKAROUND
-.w-40 {
-  width: 40%;
+//
+
+.height-300 {
+  height: 300px;
 }
 
-.w-60 {
-  width: 60%;
-}
+.text-trunc-4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
 
-.w-80 {
-  width: 80%;
+  overflow: hidden;
 }
-
-// EOW

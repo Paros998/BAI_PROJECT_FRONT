@@ -86,6 +86,7 @@ const CurrentUserProvider: FC<ProviderProps> = ({ children }) => {
 		roles
 	};
 
+	// eslint-disable-next-line react/react-in-jsx-scope
 	return <UserContext.Provider value={contextData}>{children}</UserContext.Provider>;
 };
 

@@ -13,6 +13,7 @@ import { useCurrentUser } from '../../contexts/UserContext/UserContext';
 import LoginForm from '../../forms/LoginForm';
 import loginBg from '../../images/login_register.jpg';
 import { LoginFormikValues } from '../../interfaces/formik/LoginFormikValues';
+import { RegisterRoute } from '../../routes/Routes';
 import { appendUrlSearchParams } from '../../utils/appendUrlSearchParams';
 
 const LoginFormikInitialValues: LoginFormikValues = {
@@ -79,7 +80,7 @@ const Login = () => {
 						<LoginForm />
 					</Formik>
 
-					<button onClick={() => navigate('/register')} className="btn-secondary mt-5 rounded-pill p-2">
+					<button onClick={() => navigate(RegisterRoute)} className="btn-secondary mt-5 rounded-pill p-2">
 						{/* eslint-disable-next-line react/no-unescaped-entities */}
 						Or sign up here, if you don't have an account .
 					</button>

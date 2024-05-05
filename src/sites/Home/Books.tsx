@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import HomeBook from '../../components/Book/HomeBook';
@@ -7,9 +7,20 @@ import { useFetchData } from '../../hooks/useFetchData';
 import emptyResult from '../../images/empty.jpg';
 import { BookModel } from '../../interfaces/models/Api';
 
+const refreshBooksInterval = 45000;
+
 const Books = () => {
-	const [books, , isPending] = useFetchData<BookModel[]>(`/books/find`, { shouldFetch: true });
+	const [books, fetchBooks, isPending] = useFetchData<BookModel[]>(`/books/find`);
 	// const [userLentBooks, ,isPendingLent] = useFetchData<LentBookModel[]>(`/book-lends/find/${userId}`);
+
+	const refresh = useCallback(async () => {
+		await fetchBooks();
+	}, [fetchBooks]);
+
+	useEffect(() => {
+		const interval = setInterval(refresh, refreshBooksInterval);
+		return () => clearInterval(interval);
+	}, []);
 
 	if (isPending)
 		return (
@@ -32,9 +43,9 @@ const Books = () => {
 		<div className={`w-100 h-100 justify-content-start`}>
 			<h3 className={'w-100 text-light text-center pt-1'}>Available Books</h3>
 
-			<Row>
+			<Row className={'row-gap-3 pb-4'}>
 				{books?.map((book, k) => (
-					<Col key={k} xs={12} sm={6} lg={4} xxl={3} className={'m-2'}>
+					<Col key={k} xs={24} sm={12} md={6} xxl={4}>
 						<HomeBook book={book} />
 					</Col>
 				))}

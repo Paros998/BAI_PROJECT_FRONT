@@ -12,6 +12,7 @@ import MainWrapper from '../../components/Wrappers/MainWrapper';
 import RegisterForm from '../../forms/RegisterForm';
 import loginBg from '../../images/login_register.jpg';
 import { RegisterFormikValues } from '../../interfaces/formik/RegisterFormikValues';
+import { LoginRoute } from '../../routes/Routes';
 
 const RegisterFormikInitialValues: RegisterFormikValues = {
 	username: '',
@@ -60,7 +61,7 @@ const Register = () => {
 						<RegisterForm />
 					</Formik>
 
-					<button onClick={() => navigate('/login')} className="btn-secondary mt-5 rounded-pill p-2">
+					<button onClick={() => navigate(LoginRoute)} className="btn-secondary mt-5 rounded-pill p-2">
 						Or sign in here, if you already have an account .
 					</button>
 				</div>

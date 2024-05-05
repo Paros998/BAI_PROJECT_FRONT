@@ -25,11 +25,11 @@ const Home = () => {
 		<BackgroundImageContainer src={background} className={'w-100 h-100'}>
 			<Header>
 				<div>
-					<h3 className="text-light mb-0">Welcome to library.</h3>
+					<h3 className="text-light mb-0">Welcome to Digital Library</h3>
 				</div>
 			</Header>
 
-			<MainWrapper className="px-4 py-2 d-flex align-items-center justify-content-center">
+			<MainWrapper className="px-4 py-2 h-100 d-flex align-items-center justify-content-center overflow-scroll overflow-x-hidden thumb-dark ">
 				<Books />
 			</MainWrapper>
 
