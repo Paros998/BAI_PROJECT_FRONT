@@ -2,6 +2,7 @@ import React, { useCallback, useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import HomeBook from '../../components/Book/HomeBook';
+import HomeBookXssUnsafe from '../../components/Book/HomeBookXssUnsafe';
 import Pending from '../../components/Pending/Pending';
 import { useFetchData } from '../../hooks/useFetchData';
 import emptyResult from '../../images/empty.jpg';
@@ -46,7 +47,7 @@ const Books = () => {
 			<Row className={'row-gap-3 pb-4'}>
 				{books?.map((book, k) => (
 					<Col key={k} xs={24} sm={12} md={6} xxl={4}>
-						<HomeBook book={book} />
+						{process.env.REACT_APP_APP_SECURE === 'true' ? <HomeBook book={book} /> : <HomeBookXssUnsafe book={book} />}
 					</Col>
 				))}
 			</Row>
