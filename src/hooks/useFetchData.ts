@@ -10,7 +10,7 @@ interface UseFetchDataConfig<T> {
 
 type UseFetchDataReturnModel<T> = [T, () => Promise<void>, boolean];
 
-export const useFetchData = <T extends unknown>(endpoint: string, config?: UseFetchDataConfig<T>): UseFetchDataReturnModel<T> => {
+export const useFetchData = <T>(endpoint: string, config?: UseFetchDataConfig<T>): UseFetchDataReturnModel<T> => {
 	const [data, setData] = useState<T>();
 	const [isPending, setIsPending] = useState(false);
 

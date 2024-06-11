@@ -76,6 +76,7 @@ const CurrentUserProvider: FC<ProviderProps> = ({ children }) => {
 		await fetchUser();
 	};
 
+	// TODO useMemo
 	const contextData = {
 		currentUser,
 		fetchUser,
