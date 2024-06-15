@@ -31,13 +31,17 @@ const Register = () => {
 		try {
 			await Axios.post('/users/register', registerBody);
 
-			toast.success('Registered successfully, you are allowed to login now.');
+			toast.info('Registering now.');
 
 			navigate('/login');
 		} catch (e: any) {
 			if (e.response?.status === 406) {
 				toast.error('Username is already taken, please choose different one.');
+			} else {
+				toast.error('Error occurred during registering, please try again later.');
 			}
+		} finally {
+			toast.success('Registered successfully, you are allowed to login now.');
 		}
 	};
 
