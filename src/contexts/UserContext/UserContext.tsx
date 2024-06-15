@@ -64,12 +64,14 @@ const CurrentUserProvider: FC<ProviderProps> = ({ children }) => {
 	const onLogOut = async () => {
 		localStorage.removeItem('JWT_USER_TOKEN');
 
+		if (currentUser) {
+			toast.info('We hope to see you again soon');
+		}
+
 		setCurrentUser(undefined);
 		setRoles([]);
 
 		delete Axios.defaults.headers.common['Authorization'];
-
-		toast.info('We hope to see you again soon');
 
 		navigate('/');
 

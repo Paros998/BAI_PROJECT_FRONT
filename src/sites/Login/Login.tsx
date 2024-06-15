@@ -47,8 +47,9 @@ const Login = () => {
 
 			await fetchUser();
 		} catch (e: any) {
-			setIsPending(false);
 			toast.error('Username or Password incorrect');
+		} finally {
+			setIsPending(false);
 		}
 	};
 
